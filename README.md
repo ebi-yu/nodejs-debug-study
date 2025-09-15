@@ -3,7 +3,6 @@
 Node.jsは`--inspect`オプションを使って起動すると、**V8 Inspector**を通じて外部からデバッグできるようになります。
 
 [V8 Inspector](https://v8.dev/docs/inspector)は、JSON-RPC風のJSONメッセージでやり取りするプロトコルです。デバッグ対象のプロセスと外部のデバッガーがWebSocketを通じて通信します。
-[Chrome DevTools Protocol（CDP）](https://chromedevtools.github.io/devtools-protocol/)と高い互換性があり、ブラウザのDevToolsやVSCodeなど、多くのデバッガーがこのプロトコルを利用しています。
 
 どのポートからデバッグ通信ができるかは、Node.js起動時に`--inspect`オプションで指定します。例えば、`--inspect=9229`とすると、9229番ポートでデバッグ通信ができるようになります。
 
@@ -78,7 +77,7 @@ VitestやJestを使ったテストコードをデバッグしたい場合(おそ
 
 ## まとめ
 
-- Node.jsのデバッグは、V8 Inspector（CDP互換）を用いたWebSocket通信で行われます。
+- Node.jsのデバッグは、V8 Inspectorを用いたWebSocket通信で行われます。
 - メッセージはJSON-RPC風のフォーマット（厳密な準拠ではない）でやり取りされます。
 - Node.jsのデバッグ通信では、さまざまなイベントやメソッドが使用されます。
 - VSCodeでは、Auto Attach機能でNode.jsのデバッグセッションに自動アタッチできます。
