@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  // デバッグ構成の配列
+  "configurations": [
+    {
+      "type": "node", // 使用するデバッガーの種類（Node.js）
+      "request": "launch", // 実行方法：launch=この構成で起動 / attach=既存プロセスに接続
+      "name": "Debug sample-script.js",
+      "program": "${workspaceFolder}/sample-script.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal", // 実行出力先：integratedTerminal=VS Code内の統合ターミナル
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"] // Node内部モジュールなどをステップイン対象から除外
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug sample-script.test.js",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+      "args": ["run", "sample-script.test.js"], // 引数を指定
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"]
+    }
+  ]
+}
